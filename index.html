@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Shashank Jaiswal (Sj) · AI Analyst</title>
+<meta name="description" content="Shashank Jaiswal (Sj) — AI Analyst. Business transformation and intelligent automation: MCP servers, AI audits, live KPI dashboards.">
+<meta property="og:title" content="Shashank Jaiswal (Sj) · AI Analyst">
+<meta property="og:description" content="I turn messy operations into automated, data-driven systems.">
+<meta name="theme-color" content="#0a0014">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%230a0014'/><text x='32' y='44' font-family='monospace' font-weight='900' font-size='30' text-anchor='middle' fill='%2305d9e8'>SJ</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+<style>
+:root{--bg:#0a0014;--bg2:#120326;--card:#0f021f;--pink:#ff2a6d;--cyan:#05d9e8;--purp:#b967ff;--yel:#f9f002;--txt:#e9e3ff;--mut:#9d93c2;--line:rgba(185,103,255,.25)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px;overflow-x:hidden}
+body{background:var(--bg);color:var(--txt);font:16px/1.65 Inter,system-ui,sans-serif;overflow-x:hidden}
+a{color:var(--cyan);text-decoration:none}
+#bg{position:fixed;inset:0;z-index:-2;width:100%;height:100%}
+.scan{position:fixed;inset:0;pointer-events:none;z-index:50;background:repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 1px,transparent 1px 3px)}
+.wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+/* nav */
+nav{position:sticky;top:0;z-index:40;backdrop-filter:blur(10px);background:rgba(10,0,20,.72);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{display:flex;align-items:center;gap:10px;font:800 15px Orbitron;letter-spacing:.12em;color:#fff}
+.logo b{display:grid;place-items:center;width:36px;height:36px;border:2px solid var(--cyan);border-radius:8px;color:var(--cyan);box-shadow:0 0 14px var(--cyan),inset 0 0 10px rgba(5,217,232,.35)}
+.links{display:flex;gap:22px;font:600 12px 'JetBrains Mono';letter-spacing:.14em;text-transform:uppercase}
+.links a{color:var(--mut);transition:.2s}.links a:hover{color:var(--cyan);text-shadow:0 0 10px var(--cyan)}
+.menu{display:none;background:none;border:1px solid var(--line);color:var(--cyan);font:700 12px 'JetBrains Mono';padding:6px 10px;border-radius:6px}
+@media(max-width:860px){.links{display:none;position:absolute;top:62px;left:0;right:0;flex-direction:column;gap:0;background:rgba(10,0,20,.97);border-bottom:1px solid var(--line)}.links.open{display:flex}.links a{padding:14px 20px;border-top:1px solid var(--line)}.menu{display:block}}
+/* hero */
+.hero{min-height:calc(100vh - 62px);display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center;padding:40px 0 30px}
+@media(max-width:900px){.hero{grid-template-columns:1fr;min-height:auto;padding-top:34px}}
+.badge{display:inline-flex;align-items:center;gap:10px;padding:7px 14px;border:1px solid rgba(143,233,168,.5);border-radius:999px;font:600 12px 'JetBrains Mono';letter-spacing:.06em;color:#8fe9a8;background:rgba(143,233,168,.06)}
+.badge i{width:8px;height:8px;border-radius:50%;background:#8fe9a8;box-shadow:0 0 10px #8fe9a8;animation:pulse 1.6s infinite}
+@keyframes pulse{50%{opacity:.25}}
+h1{font:900 clamp(40px,7vw,82px)/1.02 Orbitron;letter-spacing:.02em;margin:22px 0 12px;position:relative;color:#fff;text-shadow:0 0 18px rgba(255,255,255,.45),0 0 40px rgba(255,42,109,.5)}
+.glitch{position:relative;display:inline-block}
+.glitch::before,.glitch::after{content:attr(data-t);position:absolute;left:0;top:0;width:100%;overflow:hidden;mix-blend-mode:screen}
+.glitch::before{color:var(--cyan);animation:g1 3s infinite steps(1)}.glitch::after{color:var(--pink);animation:g2 2.6s infinite steps(1)}
+@keyframes g1{0%,100%{transform:translate(-2px,0)}12%{transform:translate(-7px,1px);clip-path:inset(15% 0 55% 0)}14%{transform:translate(-2px,0);clip-path:none}62%{transform:translate(-5px,-1px);clip-path:inset(65% 0 8% 0)}64%{transform:translate(-2px,0);clip-path:none}}
+@keyframes g2{0%,100%{transform:translate(2px,0)}30%{transform:translate(8px,-1px);clip-path:inset(40% 0 35% 0)}32%{transform:translate(2px,0);clip-path:none}82%{transform:translate(6px,1px);clip-path:inset(5% 0 80% 0)}84%{transform:translate(2px,0);clip-path:none}}
+.role{font:700 clamp(18px,2.6vw,26px) 'JetBrains Mono';color:var(--mut);min-height:1.6em}
+.role b{color:var(--cyan);text-shadow:0 0 12px var(--cyan)}
+.role .cur{display:inline-block;width:.6em;background:var(--yel);animation:pulse 1s steps(1) infinite;margin-left:2px}
+.lead{font-size:clamp(16px,1.6vw,19px);color:var(--txt);max-width:640px;margin:18px 0 26px}
+.lead strong{color:#fff}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:13px 22px;border-radius:8px;font:700 13px 'JetBrains Mono';letter-spacing:.1em;text-transform:uppercase;transition:.2s;border:2px solid}
+.btn.p{background:rgba(255,42,109,.16);border-color:var(--pink);color:#fff;box-shadow:0 0 18px rgba(255,42,109,.55)}
+.btn.p:hover{box-shadow:0 0 32px var(--pink);transform:translateY(-2px)}
+.btn.li{background:#0a66c2;border-color:#0a66c2;color:#fff}.btn.li:hover{box-shadow:0 0 24px #0a66c2;transform:translateY(-2px)}
+.btn.g{border-color:var(--line);color:var(--txt)}.btn.g:hover{border-color:var(--cyan);color:var(--cyan)}
+.avatar{position:relative;aspect-ratio:1;max-width:min(380px,78vw);width:100%;justify-self:center}
+.avatar .core{position:absolute;inset:12%;border-radius:22px;display:grid;place-items:center;background:linear-gradient(145deg,#1a0433,#05000d);border:2px solid var(--cyan);box-shadow:0 0 40px rgba(5,217,232,.45),inset 0 0 40px rgba(185,103,255,.25);transform:rotate(-4deg);animation:float 6s ease-in-out infinite}
+.avatar .core span{font:900 clamp(70px,10vw,120px) Orbitron;color:#fff;text-shadow:-4px 0 var(--cyan),4px 0 var(--pink),0 0 30px rgba(255,255,255,.5)}
+@keyframes float{50%{transform:rotate(-2deg) translateY(-10px)}}
+.ring{position:absolute;inset:0;border-radius:50%;border:1px dashed rgba(185,103,255,.5);animation:spin 30s linear infinite}
+.ring.r2{inset:6%;border-color:rgba(255,42,109,.35);animation-duration:22s;animation-direction:reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.chip{position:absolute;padding:7px 12px;border-radius:8px;background:rgba(10,0,20,.92);border:1px solid var(--line);font:600 12px Inter;white-space:nowrap;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+.chip:nth-of-type(1){top:6%;right:-2%;color:var(--yel)}.chip:nth-of-type(2){bottom:28%;left:-6%;color:var(--cyan)}.chip:nth-of-type(3){bottom:4%;right:4%;color:var(--pink)}
+/* counters */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:10px 0 60px}
+@media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat{position:relative;padding:24px 16px;text-align:center;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.stat::before{content:"";position:absolute;top:0;left:15%;right:15%;height:2px;background:linear-gradient(90deg,transparent,var(--c,var(--cyan)),transparent);box-shadow:0 0 12px var(--c,var(--cyan))}
+.stat .n{font:900 clamp(32px,4vw,44px) Orbitron;color:var(--c,var(--cyan));text-shadow:0 0 16px var(--c,var(--cyan))}
+.stat .l{font-size:13px;color:var(--mut)}
+/* sections */
+section{padding:70px 0}
+.kick{font:700 12px 'JetBrains Mono';letter-spacing:.3em;color:var(--pink);text-transform:uppercase;display:flex;align-items:center;gap:12px}
+.kick::before{content:attr(data-n);color:var(--bg);background:var(--pink);padding:2px 7px;border-radius:4px;letter-spacing:.05em;box-shadow:0 0 12px var(--pink)}
+h2{font:800 clamp(26px,3.6vw,40px)/1.15 Orbitron;color:#fff;margin:10px 0 10px;letter-spacing:.02em}
+.sub{color:var(--mut);max-width:680px;margin-bottom:32px}
+.grid2{display:grid;grid-template-columns:1.3fr 1fr;gap:28px}
+@media(max-width:860px){.grid2{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px;transition:.25s;position:relative}
+.card:hover{border-color:var(--c,var(--cyan));box-shadow:0 0 0 1px var(--c,var(--cyan)),0 0 28px rgba(5,217,232,.18);transform:translateY(-3px)}
+blockquote{margin-top:18px;padding:14px 18px;border-left:3px solid var(--yel);background:rgba(249,240,2,.05);color:#fff;font-style:italic;border-radius:0 8px 8px 0}
+.facts{display:grid;gap:12px}
+.fact{display:flex;gap:14px;align-items:flex-start;padding:12px 14px;background:var(--bg2);border:1px solid var(--line);border-radius:10px}
+.fact .i{font-size:20px}.fact small{display:block;font:700 11px 'JetBrains Mono';letter-spacing:.18em;color:var(--mut);text-transform:uppercase}
+/* timeline */
+.tl{position:relative;padding-left:34px}
+.tl::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:3px;border-radius:3px;background:linear-gradient(var(--cyan),var(--pink),var(--purp));box-shadow:0 0 12px rgba(5,217,232,.5)}
+.job{position:relative;margin-bottom:22px}
+.job::before{content:"";position:absolute;left:-32px;top:26px;width:15px;height:15px;border-radius:50%;background:var(--bg);border:3px solid var(--c);box-shadow:0 0 12px var(--c)}
+.job .when{font:700 12px 'JetBrains Mono';letter-spacing:.16em;color:var(--c)}
+.job h3{font:700 19px Inter;color:#fff;margin:4px 0 2px}
+.job .where{font:600 13px 'JetBrains Mono';color:var(--mut);margin-bottom:10px}
+.job ul{list-style:none;display:grid;gap:6px}.job li{padding-left:20px;position:relative;color:var(--txt);font-size:15px}
+.job li::before{content:"▸";position:absolute;left:0;color:var(--c)}
+/* impact */
+.imp{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:900px){.imp{grid-template-columns:1fr 1fr}}@media(max-width:560px){.imp{grid-template-columns:1fr}}
+.imp .big{font:900 26px Orbitron;color:var(--c);text-shadow:0 0 14px var(--c);margin-bottom:6px}
+/* projects */
+.proj{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:960px){.proj{grid-template-columns:1fr 1fr}}@media(max-width:620px){.proj{grid-template-columns:1fr}}
+.proj .card{display:flex;flex-direction:column}
+.proj .ic{font-size:30px;width:56px;height:56px;display:grid;place-items:center;border-radius:12px;background:var(--bg2);border:1px solid var(--line);margin-bottom:14px}
+.proj h3{font:800 17px Orbitron;color:#fff;letter-spacing:.03em}
+.tag{display:inline-block;font:700 11px 'JetBrains Mono';letter-spacing:.1em;color:var(--c);border:1px solid var(--c);border-radius:4px;padding:2px 7px;margin:8px 0 10px;opacity:.9}
+.proj p{color:var(--txt);font-size:15px;flex:1}
+.plinks{display:flex;gap:14px;margin-top:14px;font:700 12px 'JetBrains Mono';letter-spacing:.1em;text-transform:uppercase}
+/* posts / recs */
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:900px){.posts{grid-template-columns:1fr 1fr}}@media(max-width:600px){.posts{grid-template-columns:1fr}}
+.post .d{font:700 11px 'JetBrains Mono';letter-spacing:.16em;color:var(--mut)}
+.post p{margin:10px 0 14px;font-size:15px}
+.netrow{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.pill{padding:10px 16px;border:1px solid var(--line);border-radius:10px;background:var(--bg2);font-size:14px}
+.pill b{color:var(--cyan)}
+.rec p{font-style:italic}.rec .who{margin-top:12px;font:700 13px 'JetBrains Mono';color:var(--yel)}
+/* achievements / skills / certs */
+.ach{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:960px){.ach{grid-template-columns:1fr 1fr}}@media(max-width:560px){.ach{grid-template-columns:1fr}}
+.ach .e{font-size:32px}.ach h3{font:700 16px Inter;color:#fff;margin:10px 0 6px}.ach p{font-size:14px;color:var(--mut)}
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}@media(max-width:700px){.skills{grid-template-columns:1fr}}
+.skills h3{font:700 17px Inter;color:#fff;margin-bottom:12px}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tags span{padding:6px 11px;border-radius:6px;background:var(--bg2);border:1px solid var(--line);font-size:13px}
+.tags span:hover{border-color:var(--c);color:#fff;box-shadow:0 0 12px rgba(5,217,232,.25)}
+.issuer{display:flex;align-items:center;gap:10px;font:700 16px Inter;color:var(--c);margin:26px 0 12px}
+.issuer::before{content:"";width:6px;height:20px;border-radius:2px;background:var(--c);box-shadow:0 0 10px var(--c)}
+.certs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:860px){.certs{grid-template-columns:1fr 1fr}}@media(max-width:560px){.certs{grid-template-columns:1fr}}
+.cert{padding:14px 16px;border-radius:10px;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--c)}
+.cert b{display:block;font-weight:600;color:#fff;font-size:15px}.cert small{font:700 11px 'JetBrains Mono';letter-spacing:.14em;color:var(--c)}
+.award{margin-top:22px;padding:18px 20px;border-radius:12px;background:rgba(249,240,2,.06);border:1px solid rgba(249,240,2,.5)}
+.award b{color:#fff}.award small{display:block;font:700 12px 'JetBrains Mono';color:var(--yel);margin-top:4px}
+/* contact */
+.contact{text-align:center;padding:60px 24px;border-radius:20px;background:radial-gradient(ellipse at top,rgba(255,42,109,.1),transparent 60%),var(--card);border:1px solid var(--line)}
+.contact .cta{justify-content:center;margin-top:24px}
+footer{padding:36px 0 50px;text-align:center;color:var(--mut);font:600 12px 'JetBrains Mono';letter-spacing:.12em}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}.reveal.on{opacity:1;transform:none}
+.loading{color:var(--mut);font:600 13px 'JetBrains Mono'}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas><div class="scan"></div>
+
+<nav><div class="wrap">
+  <a class="logo" href="#top"><b>SJ</b><span id="nav-name">SHASHANK JAISWAL</span></a>
+  <button class="menu" id="menu" aria-label="Menu">MENU</button>
+  <div class="links" id="links">
+    <a href="#about">About</a><a href="#experience">Experience</a><a href="#impact">Impact</a><a href="#projects">Projects</a><a href="#posts">LinkedIn</a><a href="#skills">Skills</a><a href="#certs">Certs</a><a href="#contact">Contact</a>
+  </div>
+</div></nav>
+
+<main class="wrap" id="top">
+  <div class="hero">
+    <div>
+      <span class="badge"><i></i><span id="open-badge">Open to opportunities</span></span>
+      <h1>Hi, I'm <span class="glitch" data-t="Shashank" id="h-name">Shashank</span></h1>
+      <div class="role">&gt; <span id="role-pre">I'm an</span> <b id="role"></b><span class="cur">&nbsp;</span></div>
+      <p class="lead" id="lead"></p>
+      <div class="cta">
+        <a class="btn p" id="mail" href="#contact">✉ Email me</a>
+        <a class="btn li" id="li" href="https://www.linkedin.com/in/sj969/" target="_blank" rel="noopener">in LinkedIn</a>
+        <a class="btn g" href="#projects">View my work →</a>
+      </div>
+    </div>
+    <div class="avatar" aria-hidden="true">
+      <div class="ring"></div><div class="ring r2"></div>
+      <div class="core"><span>SJ</span></div>
+      <span class="chip">🔌 MCP servers</span><span class="chip">🎧 AI call audits</span><span class="chip">📊 Live KPI dashboards</span>
+    </div>
+  </div>
+  <div class="stats" id="stats"></div>
+
+  <section id="about" class="reveal">
+    <div class="kick" data-n="01">About me</div>
+    <h2 id="headline">Builder's mindset, operator's discipline</h2>
+    <div class="grid2">
+      <div class="card"><p id="about-text" class="loading">Loading…</p><blockquote id="quote"></blockquote></div>
+      <div class="facts" id="facts"></div>
+    </div>
+  </section>
+
+  <section id="experience" class="reveal">
+    <div class="kick" data-n="02">Experience</div>
+    <h2>Professional journey</h2>
+    <p class="sub">From go-to-market and operations to company-wide AI and automation.</p>
+    <div class="tl" id="timeline"><p class="loading">Loading…</p></div>
+  </section>
+
+  <section id="impact" class="reveal">
+    <div class="kick" data-n="03">Impact</div>
+    <h2>Results that moved the needle</h2>
+    <div class="imp" id="imp"></div>
+  </section>
+
+  <section id="projects" class="reveal">
+    <div class="kick" data-n="04">Projects</div>
+    <h2>Things I've designed &amp; built</h2>
+    <p class="sub">Real tools, open source on GitHub. Several run live in your browser.</p>
+    <div class="proj" id="proj"></div>
+  </section>
+
+  <section id="posts" class="reveal">
+    <div class="kick" data-n="05">From my LinkedIn</div>
+    <h2>I write about AI, automation &amp; operations</h2>
+    <div class="posts" id="post-list"></div>
+    <div class="netrow">
+      <span class="pill">👥 <b>1.2K+</b> followers · <b>500+</b> connections</span>
+      <span class="pill">🤖 AI in operations · MCP · automation</span>
+      <a class="btn li" id="li2" href="https://www.linkedin.com/in/sj969/recent-activity/all/" target="_blank" rel="noopener">Read all posts →</a>
+    </div>
+    <div class="posts" id="recs" style="margin-top:22px"></div>
+  </section>
+
+  <section id="achievements" class="reveal">
+    <div class="kick" data-n="06">Achievements</div>
+    <h2>Recognition &amp; milestones</h2>
+    <div class="ach" id="ach"></div>
+  </section>
+
+  <section id="skills" class="reveal">
+    <div class="kick" data-n="07">Skills</div>
+    <h2>What I bring</h2>
+    <div class="skills" id="skill-list"></div>
+  </section>
+
+  <section id="certs" class="reveal">
+    <div class="kick" data-n="08">Certifications</div>
+    <h2 id="cert-title">Certifications</h2>
+    <div id="cert-list"><p class="loading">Loading…</p></div>
+  </section>
+
+  <section id="contact" class="reveal">
+    <div class="contact">
+      <div class="kick" data-n="09" style="justify-content:center">Let's work together</div>
+      <h2>Need someone who turns ops problems into AI fixes?</h2>
+      <p class="sub" style="margin:10px auto 0" id="contact-sub"></p>
+      <div class="cta">
+        <a class="btn p" id="mail2" href="#">✉ <span id="mail-text">Email</span></a>
+        <a class="btn li" id="li3" href="https://www.linkedin.com/in/sj969/" target="_blank" rel="noopener">in Connect on LinkedIn</a>
+        <a class="btn g" id="gh" href="https://github.com/sjaiswalnetwork" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>© <span id="yr"></span> SHASHANK JAISWAL · BUILT ON GITHUB PAGES · <a href="https://sjaiswalnetwork.github.io/neon-runner/">▶ PLAY NEON RUNNER</a></footer>
+
+<script>
+(() => {
+const RAW = 'https://raw.githubusercontent.com/sjaiswalnetwork/sjaiswalnetwork/main/data/';
+const COLORS = ['#05d9e8','#ff2a6d','#f9f002','#b967ff'];
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const safeUrl = u => /^https:\/\//i.test(String(u || '')) ? String(u) : '#';
+$('yr').textContent = new Date().getFullYear();
+$('menu').onclick = () => $('links').classList.toggle('open');
+document.querySelectorAll('#links a').forEach(a => a.onclick = () => $('links').classList.remove('open'));
+
+async function load(name){
+  try {
+    const r = await fetch(RAW + name + '.yml?t=' + Math.floor(Date.now() / 300000), {cache:'no-cache'});
+    if (!r.ok) throw new Error(r.status);
+    return jsyaml.load(await r.text()) || {};
+  } catch(e){ console.warn('could not load', name, e); return {}; }
+}
+
+function typeRoles(list){
+  if (!list || !list.length) return;
+  let i = 0, j = 0, del = false; const el = $('role');
+  (function tick(){
+    const w = list[i % list.length];
+    $('role-pre').textContent = /^[AEIOU]/i.test(w) ? "I'm an" : "I'm a";
+    el.textContent = w.slice(0, j);
+    if (!del && j < w.length) j++; else if (!del) { del = true; return setTimeout(tick, 1600); }
+    else if (j > 0) j--; else { del = false; i++; }
+    setTimeout(tick, del ? 35 : 70);
+  })();
+}
+
+function counters(){
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return; io.unobserve(e.target);
+    const el = e.target, end = +el.dataset.v, suf = el.dataset.s || '', t0 = performance.now();
+    (function step(t){ const p = Math.min(1, (t - t0) / 1400); el.textContent = Math.round(end * (1 - Math.pow(1 - p, 3))).toLocaleString('en-IN') + suf; if (p < 1) requestAnimationFrame(step); })(t0);
+  }), {threshold:.4});
+  document.querySelectorAll('.stat .n').forEach(n => io.observe(n));
+}
+
+function reveal(){
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); } }), {threshold:.08});
+  document.querySelectorAll('.reveal').forEach(s => io.observe(s));
+}
+
+function renderProfile(p){
+  if (!p.name) { $('about-text').textContent = 'Profile data could not be loaded right now. Please refresh in a minute.'; return; }
+  const first = p.name.split(' ')[0];
+  $('h-name').textContent = first; $('h-name').dataset.t = first;
+  $('nav-name').textContent = p.name.toUpperCase();
+  $('open-badge').textContent = p.open_to_badge || 'Open to opportunities';
+  typeRoles(p.open_to);
+  $('lead').innerHTML = `<strong>${esc(p.headline)}</strong> ${esc(p.intro)}`;
+  const mail = 'mailto:' + (p.email || '');
+  ['mail','mail2'].forEach(id => $(id).href = mail); $('mail-text').textContent = p.email || 'Email';
+  ['li','li3'].forEach(id => $(id).href = safeUrl(p.linkedin));
+  $('gh').href = safeUrl(p.github);
+  $('contact-sub').textContent = 'Open to ' + (p.open_to || []).join(' · ') + ' roles.';
+  $('stats').innerHTML = (p.counters || []).map((c, i) => `<div class="stat" style="--c:${COLORS[i % 4]}"><div class="n" data-v="${+c.value || 0}" data-s="${esc(c.suffix)}">0</div><div class="l">${esc(c.label)}</div></div>`).join('');
+  $('about-text').classList.remove('loading'); $('about-text').textContent = p.about || '';
+  $('quote').textContent = p.quote ? '“' + p.quote + '”' : ''; if (!p.quote) $('quote').remove();
+  $('facts').innerHTML = (p.facts || []).map(f => `<div class="fact"><span class="i">${esc(f.icon)}</span><div><small>${esc(f.label)}</small>${esc(f.value)}</div></div>`).join('');
+  $('imp').innerHTML = (p.impact || []).map((m, i) => `<div class="card" style="--c:${COLORS[i % 4]}"><div class="big">${esc(m.big)}</div><div>${esc(m.text)}</div></div>`).join('');
+  $('proj').innerHTML = (p.projects || []).map((x, i) => `<div class="card" style="--c:${COLORS[i % 4]}"><div class="ic">${esc(x.icon)}</div><h3>${esc(x.name)}</h3><span class="tag">${esc(x.tag)}</span><p>${esc(x.text)}</p><div class="plinks">${x.repo ? `<a href="${safeUrl(x.repo)}" target="_blank" rel="noopener">Code ↗</a>` : ''}${x.live ? `<a href="${safeUrl(x.live)}" target="_blank" rel="noopener" style="color:var(--yel)">Live ↗</a>` : ''}</div></div>`).join('');
+  $('ach').innerHTML = (p.achievements || []).map((a, i) => `<div class="card" style="--c:${COLORS[i % 4]}"><div class="e">${esc(a.icon)}</div><h3>${esc(a.title)}</h3><p>${esc(a.text)}</p></div>`).join('');
+  $('skill-list').innerHTML = (p.skills || []).map((g, i) => `<div class="card" style="--c:${COLORS[i % 4]}"><h3>${esc(g.group)}</h3><div class="tags">${(g.items || []).map(s => `<span>${esc(s)}</span>`).join('')}</div></div>`).join('');
+  counters();
+}
+
+function renderExperience(d){
+  const list = [...(d.jobs || []), ...(d.education || [])];
+  if (!list.length) { $('timeline').innerHTML = '<p class="loading">Experience will appear here shortly.</p>'; return; }
+  $('timeline').innerHTML = list.map((j, i) => `<div class="job card" style="--c:${COLORS[i % 4]}"><div class="when">${esc(j.when)}</div><h3>${esc(j.title)}</h3><div class="where">${esc(j.where)}</div><ul>${(j.points || []).map(p => `<li>${esc(p)}</li>`).join('')}</ul></div>`).join('');
+}
+
+function renderCerts(d){
+  const certs = d.certifications || [], groups = {};
+  certs.forEach(c => (groups[c.issuer || 'Other'] = groups[c.issuer || 'Other'] || []).push(c));
+  $('cert-title').textContent = certs.length ? `${certs.length} certifications & counting` : 'Certifications';
+  let html = Object.entries(groups).map(([iss, items], i) => `<div class="issuer" style="--c:${COLORS[(i + 1) % 4]}">${esc(iss)} · ${items.length}</div><div class="certs">${items.map(c => `<div class="cert" style="--c:${COLORS[(i + 1) % 4]}"><b>${esc(c.name)}</b><small>✓ ${esc(c.date)}</small></div>`).join('')}</div>`).join('');
+  html += (d.awards || []).map(a => `<div class="award">🏆 <b>${esc(a.name)}</b><small>${esc(a.issuer)} · ${esc(a.date)}</small></div>`).join('');
+  $('cert-list').innerHTML = html || '<p class="loading">Certifications will appear here shortly.</p>';
+}
+
+function renderPosts(d, profile){
+  const posts = (d.posts || []).slice(0, 6);
+  if (!posts.length) {
+    $('post-list').innerHTML = `<div class="card post" style="--c:#0a66c2;grid-column:1/-1"><div class="d">LATEST ON LINKEDIN</div><p>I share how AI, MCP servers and automation fix real operations problems — call audits, KPI dashboards, ERP workflows.</p><a href="${safeUrl((profile.linkedin || 'https://www.linkedin.com/in/sj969/') + 'recent-activity/all/')}" target="_blank" rel="noopener">See my posts on LinkedIn ↗</a></div>`;
+    return;
+  }
+  $('post-list').innerHTML = posts.map((p, i) => `<a class="card post" style="--c:${COLORS[i % 4]};color:inherit" href="${safeUrl(p.link)}" target="_blank" rel="noopener"><div class="d">${esc(p.date || 'LINKEDIN POST')}</div><p>${esc(p.text)}</p><span style="color:var(--cyan);font:700 12px JetBrains Mono;letter-spacing:.1em">READ ON LINKEDIN ↗</span></a>`).join('');
+}
+
+function renderRecs(d){
+  const recs = (d.recommendations || []).slice(0, 3);
+  $('recs').innerHTML = recs.map((r, i) => `<div class="card rec" style="--c:${COLORS[(i + 2) % 4]}"><p>“${esc(r.text.length > 320 ? r.text.slice(0, 317) + '…' : r.text)}”</p><div class="who">— ${esc(r.name)}${r.role ? ', ' + esc(r.role) : ''}</div></div>`).join('');
+  if (!recs.length) $('recs').remove();
+}
+
+Promise.all(['profile','experience','credentials','posts','recommendations'].map(load)).then(([p, e, c, po, re]) => {
+  renderProfile(p); renderExperience(e); renderCerts(c); renderPosts(po, p); renderRecs(re); reveal();
+});
+
+// ---------- background: neon grid + rain ----------
+const cv = $('bg'), ctx = cv.getContext('2d'); let W, H, cols = [];
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+function size(){ W = cv.width = innerWidth; H = cv.height = innerHeight; cols = Array.from({length: Math.ceil(W / 22)}, () => Math.random() * H); }
+addEventListener('resize', size); size();
+const glyphs = '01アイウエオカキクケコサシスセソ<>/#$%ABCDEF';
+let t = 0;
+function draw(){
+  t += 1;
+  if (t % 3) { if (!reduce) requestAnimationFrame(draw); return; }
+  ctx.fillStyle = 'rgba(10,0,20,0.22)'; ctx.fillRect(0, 0, W, H);
+  ctx.font = '13px JetBrains Mono, monospace';
+  cols.forEach((y, i) => {
+    ctx.fillStyle = i % 5 === 0 ? 'rgba(255,42,109,.35)' : 'rgba(5,217,232,.28)';
+    ctx.fillText(glyphs[(Math.random() * glyphs.length) | 0], i * 22, y);
+    cols[i] = y > H + Math.random() * 4000 ? 0 : y + 14;
+  });
+  // horizon grid at the bottom
+  const hz = H * 0.72; ctx.strokeStyle = 'rgba(255,42,109,.1)'; ctx.lineWidth = 1;
+  for (let k = 0; k < 12; k++){ const p = ((k + (t % 40) / 40) / 12) ** 2; const y = hz + (H - hz) * p; ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
+  for (let k = -14; k <= 14; k++){ ctx.beginPath(); ctx.moveTo(W / 2, hz); ctx.lineTo(W / 2 + k * W / 8, H); ctx.stroke(); }
+  if (!reduce) requestAnimationFrame(draw);
+}
+draw();
+})();
+</script>
+</body>
+</html>
