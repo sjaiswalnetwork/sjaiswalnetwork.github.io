@@ -333,7 +333,7 @@ function renderCerts(d){
   const certs = d.certifications || [], groups = {};
   certs.forEach(c => (groups[c.issuer || 'Other'] = groups[c.issuer || 'Other'] || []).push(c));
   $('cert-title').textContent = certs.length ? `${certs.length} certifications & counting` : 'Certifications';
-  let html = Object.entries(groups).map(([iss, items], i) => `<div class="issuer" style="--c:${COLORS[(i + 1) % 4]}">${esc(iss)} · ${items.length}</div><div class="certs">${items.map(c => `<div class="cert" style="--c:${COLORS[(i + 1) % 4]}"><b>${esc(c.name)}</b><small>✓ ${esc(c.date)}</small></div>`).join('')}</div>`).join('');
+  let html = Object.entries(groups).map(([iss, items], i) => `<div class="issuer" style="--c:${COLORS[(i + 1) % 4]}">${esc(iss)} · ${items.length}</div><div class="certs">${items.map(c => (c.url ? `<a class="cert" href="${safeUrl(c.url)}" target="_blank" rel="noopener" style="--c:${COLORS[(i + 1) % 4]};text-decoration:none;color:inherit"><b>${esc(c.name)}</b><small>✓ ${esc(c.date)} · Verify ↗</small></a>` : `<div class="cert" style="--c:${COLORS[(i + 1) % 4]}"><b>${esc(c.name)}</b><small>✓ ${esc(c.date)}</small></div>`)).join('')}</div>`).join('');
   html += (d.awards || []).map(a => `<div class="award">🏆 <b>${esc(a.name)}</b><small>${esc(a.issuer)} · ${esc(a.date)}</small></div>`).join('');
   $('cert-list').innerHTML = html || '<p class="loading">Certifications will appear here shortly.</p>';
 }
