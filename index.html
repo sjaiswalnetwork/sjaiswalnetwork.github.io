@@ -103,6 +103,19 @@ blockquote{margin-top:18px;padding:14px 18px;border-left:3px solid var(--yel);ba
 .imp{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 @media(max-width:900px){.imp{grid-template-columns:1fr 1fr}}@media(max-width:560px){.imp{grid-template-columns:1fr}}
 .imp .big{font:900 26px Orbitron;color:var(--c);text-shadow:0 0 14px var(--c);margin-bottom:6px}
+/* owner CV panel */
+.omodal{position:fixed;inset:0;background:rgba(5,0,15,.85);display:grid;place-items:center;z-index:9999;padding:20px}
+.omodal[hidden]{display:none}
+.obox{max-width:500px;width:100%;--c:#05d9e8;background:var(--bg2)}
+.obox h3{font:800 18px Orbitron;color:#fff;margin:0 0 4px}
+.obox p{font-size:14px;color:var(--mut);margin:8px 0 12px}
+.obox input{width:100%;box-sizing:border-box;padding:12px;border-radius:8px;border:1px solid var(--line);background:#0b0018;color:#fff;font:14px 'JetBrains Mono'}
+.orow{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+button.btn{cursor:pointer;background:transparent}
+button.btn:disabled{opacity:.4;cursor:not-allowed}
+.ox{position:absolute;top:10px;right:14px;background:none;border:0;color:var(--mut);font-size:20px;cursor:pointer}
+.olink{background:none;border:0;color:var(--mut);font:600 12px 'JetBrains Mono';margin-top:16px;cursor:pointer;text-decoration:underline;padding:0}
+#o-msg{color:var(--txt);min-height:1em}
 /* case studies */
 .cases{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 @media(max-width:960px){.cases{grid-template-columns:1fr}}
@@ -267,7 +280,24 @@ footer{padding:36px 0 50px;text-align:center;color:var(--mut);font:600 12px 'Jet
     </div>
   </section>
 </main>
-<footer>© <span id="yr"></span> SHASHANK JAISWAL · BUILT ON GITHUB PAGES · <a href="https://sjaiswalnetwork.github.io/neon-runner/">▶ PLAY NEON RUNNER</a> · <a href="https://github.com/sjaiswalnetwork/sjaiswalnetwork.github.io/tree/main/cv" target="_blank" rel="noopener" style="opacity:.55">⚙ OWNER: UPDATE CV</a></footer>
+<footer>© <span id="yr"></span> SHASHANK JAISWAL · BUILT ON GITHUB PAGES · <a href="https://sjaiswalnetwork.github.io/neon-runner/">▶ PLAY NEON RUNNER</a> · <a href="#owner" id="owner-link" style="opacity:.55">⚙ OWNER: UPDATE CV</a></footer>
+
+<div id="owner" class="omodal" hidden role="dialog" aria-label="Owner: update CV"><div class="card obox">
+  <button class="ox" id="o-close" aria-label="Close">✕</button>
+  <h3>⚙ Owner · CV</h3>
+  <div id="o-login">
+    <p>Only the owner can change the CV. Paste your GitHub access token once — it is saved in this browser only, never on the website.</p>
+    <input id="o-token" type="password" placeholder="github_pat_…" autocomplete="off">
+    <div class="orow"><button class="btn p" id="o-save">Unlock</button><a class="btn g" href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">Get a token ↗</a></div>
+  </div>
+  <div id="o-panel" hidden>
+    <p id="o-current">Checking…</p>
+    <input id="o-file" type="file" accept="application/pdf,.pdf">
+    <div class="orow"><button class="btn p" id="o-upload">⬆ Upload &amp; replace</button><button class="btn g" id="o-remove">🗑 Take down</button></div>
+    <p id="o-msg"></p>
+    <button class="olink" id="o-logout">Lock — forget the token on this browser</button>
+  </div>
+</div></div>
 
 <script>
 (() => {
@@ -370,6 +400,50 @@ async function loadCV(){
     ['cv', 'cv2'].forEach(id => { const a = $(id); a.href = 'cv/' + encodeURIComponent(f.name); a.style.display = ''; });
   } catch (e) {}
 }
+
+// ---------- owner CV panel (GitHub token stays in the owner's browser) ----------
+const CVAPI = 'https://api.github.com/repos/sjaiswalnetwork/sjaiswalnetwork.github.io/contents/cv';
+const otk = () => { try { return localStorage.getItem('sj_gh_token') || ''; } catch (e) { return ''; } };
+async function gh(path, opt = {}){
+  const r = await fetch(CVAPI + path, {...opt, cache:'no-store', headers:{'Authorization':'Bearer ' + otk(), 'Accept':'application/vnd.github+json'}});
+  if (!r.ok) throw new Error(r.status === 401 || r.status === 403 ? 'Token not accepted (' + r.status + '). Lock, then paste a new token.' : 'GitHub error ' + r.status);
+  return r.status === 204 ? {} : r.json();
+}
+const oList = async () => (await gh('?t=' + Date.now())).filter(x => /\.pdf$/i.test(x.name));
+async function oRefresh(){
+  try { const l = await oList(); $('o-current').textContent = l.length ? '✅ Live CV: ' + l.map(x => x.name).join(', ') : 'No CV online right now. Recruiters see no Download button.'; $('o-remove').disabled = !l.length; }
+  catch (e) { $('o-current').textContent = '❌ ' + e.message; $('o-remove').disabled = true; }
+}
+function oShow(){ $('owner').hidden = false; const t = otk(); $('o-login').hidden = !!t; $('o-panel').hidden = !t; $('o-msg').textContent = ''; if (t) oRefresh(); }
+$('owner-link').addEventListener('click', e => { e.preventDefault(); oShow(); });
+$('o-close').addEventListener('click', () => { $('owner').hidden = true; });
+$('owner').addEventListener('click', e => { if (e.target.id === 'owner') $('owner').hidden = true; });
+$('o-save').addEventListener('click', () => { const v = $('o-token').value.trim(); if (!v) return; try { localStorage.setItem('sj_gh_token', v); } catch (e) {} $('o-token').value = ''; oShow(); });
+$('o-logout').addEventListener('click', () => { try { localStorage.removeItem('sj_gh_token'); } catch (e) {} oShow(); });
+$('o-upload').addEventListener('click', async () => {
+  const f = $('o-file').files[0], msg = $('o-msg');
+  if (!f) { msg.textContent = 'Choose your CV PDF first.'; return; }
+  if (!/\.pdf$/i.test(f.name)) { msg.textContent = 'Only PDF files.'; return; }
+  msg.textContent = '⏳ Uploading…'; $('o-upload').disabled = true;
+  try {
+    const b64 = await new Promise((ok, no) => { const fr = new FileReader(); fr.onload = () => ok(String(fr.result).split(',')[1]); fr.onerror = no; fr.readAsDataURL(f); });
+    const name = f.name.replace(/[^\w.\-]+/g, '_'), old = await oList(), same = old.find(x => x.name === name);
+    await gh('/' + encodeURIComponent(name), {method:'PUT', body:JSON.stringify({message:'Update CV', content:b64, ...(same ? {sha:same.sha} : {})})});
+    for (const x of old) if (x.name !== name) await gh('/' + encodeURIComponent(x.name), {method:'DELETE', body:JSON.stringify({message:'Remove old CV', sha:x.sha})});
+    $('o-file').value = ''; await oRefresh();
+    msg.textContent = '✅ Uploaded. The old CV was removed. The Download CV button updates for visitors within ~5 minutes.';
+  } catch (e) { msg.textContent = '❌ ' + e.message; }
+  $('o-upload').disabled = false;
+});
+let oArm = 0;
+$('o-remove').addEventListener('click', async () => {
+  const msg = $('o-msg');
+  if (Date.now() - oArm > 5000) { oArm = Date.now(); msg.textContent = 'Click "Take down" again within 5 seconds to remove your CV from the website.'; return; }
+  oArm = 0; msg.textContent = '⏳ Removing…';
+  try { for (const x of await oList()) await gh('/' + encodeURIComponent(x.name), {method:'DELETE', body:JSON.stringify({message:'Take down CV', sha:x.sha})}); await oRefresh(); msg.textContent = '✅ CV taken down. The Download CV button disappears within ~5 minutes.'; }
+  catch (e) { msg.textContent = '❌ ' + e.message; }
+});
+if (location.hash === '#owner') oShow();
 
 function renderPosts(d, profile){
   const posts = (d.posts || []).slice(0, 6);
