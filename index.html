@@ -103,6 +103,13 @@ blockquote{margin-top:18px;padding:14px 18px;border-left:3px solid var(--yel);ba
 .imp{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 @media(max-width:900px){.imp{grid-template-columns:1fr 1fr}}@media(max-width:560px){.imp{grid-template-columns:1fr}}
 .imp .big{font:900 26px Orbitron;color:var(--c);text-shadow:0 0 14px var(--c);margin-bottom:6px}
+/* case studies */
+.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:960px){.cases{grid-template-columns:1fr}}
+.case h3{font:800 17px Orbitron;color:#fff;letter-spacing:.03em;margin-top:4px}
+.case .res{font:900 22px Orbitron;color:var(--c);text-shadow:0 0 12px var(--c);margin:10px 0 2px}
+.case dt{font:700 11px 'JetBrains Mono';letter-spacing:.16em;color:var(--c);margin-top:14px;text-transform:uppercase}
+.case dd{margin:4px 0 0;font-size:15px;color:var(--txt)}
 /* projects */
 .proj{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 @media(max-width:960px){.proj{grid-template-columns:1fr 1fr}}@media(max-width:620px){.proj{grid-template-columns:1fr}}
@@ -154,7 +161,7 @@ footer{padding:36px 0 50px;text-align:center;color:var(--mut);font:600 12px 'Jet
   <a class="logo" href="#top"><b>SJ</b><span id="nav-name">SHASHANK JAISWAL</span></a>
   <button class="menu" id="menu" aria-label="Menu">MENU</button>
   <div class="links" id="links">
-    <a href="#about">About</a><a href="#experience">Experience</a><a href="#impact">Impact</a><a href="#projects">Projects</a><a href="#posts">LinkedIn</a><a href="#skills">Skills</a><a href="#certs">Certs</a><a href="#contact">Contact</a>
+    <a href="#about">About</a><a href="#experience">Experience</a><a href="#impact">Impact</a><a href="#cases">Case studies</a><a href="#projects">Projects</a><a href="#posts">LinkedIn</a><a href="#skills">Skills</a><a href="#certs">Certs</a><a href="#contact">Contact</a>
   </div>
 </div></nav>
 
@@ -168,7 +175,8 @@ footer{padding:36px 0 50px;text-align:center;color:var(--mut);font:600 12px 'Jet
       <div class="cta">
         <a class="btn p" id="mail" href="#contact">✉ Email me</a>
         <a class="btn li" id="li" href="https://www.linkedin.com/in/sj969/" target="_blank" rel="noopener">in LinkedIn</a>
-        <a class="btn g" href="#projects">View my work →</a>
+        <a class="btn g" href="#cases">View my work →</a>
+        <a class="btn g" id="cv" href="#" download style="display:none">⬇ Download CV</a>
       </div>
     </div>
     <div class="avatar" aria-hidden="true">
@@ -201,10 +209,17 @@ footer{padding:36px 0 50px;text-align:center;color:var(--mut);font:600 12px 'Jet
     <div class="imp" id="imp"></div>
   </section>
 
+  <section id="cases" class="reveal">
+    <div class="kick" data-n="★">Case studies</div>
+    <h2>Real problems I solved at work</h2>
+    <p class="sub">The problem, what I built, and the measured result. Company names kept private.</p>
+    <div class="cases" id="case-list"></div>
+  </section>
+
   <section id="projects" class="reveal">
     <div class="kick" data-n="04">Projects</div>
     <h2>Things I've designed &amp; built</h2>
-    <p class="sub">Real tools, open source on GitHub. Several run live in your browser.</p>
+    <p class="sub">Open-source tools on GitHub, then a few fun builds. Several run live in your browser.</p>
     <div class="proj" id="proj"></div>
   </section>
 
@@ -247,11 +262,12 @@ footer{padding:36px 0 50px;text-align:center;color:var(--mut);font:600 12px 'Jet
         <a class="btn p" id="mail2" href="#">✉ <span id="mail-text">Email</span></a>
         <a class="btn li" id="li3" href="https://www.linkedin.com/in/sj969/" target="_blank" rel="noopener">in Connect on LinkedIn</a>
         <a class="btn g" id="gh" href="https://github.com/sjaiswalnetwork" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="btn g" id="cv2" href="#" download style="display:none">⬇ Download CV</a>
       </div>
     </div>
   </section>
 </main>
-<footer>© <span id="yr"></span> SHASHANK JAISWAL · BUILT ON GITHUB PAGES · <a href="https://sjaiswalnetwork.github.io/neon-runner/">▶ PLAY NEON RUNNER</a></footer>
+<footer>© <span id="yr"></span> SHASHANK JAISWAL · BUILT ON GITHUB PAGES · <a href="https://sjaiswalnetwork.github.io/neon-runner/">▶ PLAY NEON RUNNER</a> · <a href="https://github.com/sjaiswalnetwork/sjaiswalnetwork.github.io/tree/main/cv" target="_blank" rel="noopener" style="opacity:.55">⚙ OWNER: UPDATE CV</a></footer>
 
 <script>
 (() => {
@@ -317,7 +333,8 @@ function renderProfile(p){
   $('quote').textContent = p.quote ? '“' + p.quote + '”' : ''; if (!p.quote) $('quote').remove();
   $('facts').innerHTML = (p.facts || []).map(f => `<div class="fact"><span class="i">${esc(f.icon)}</span><div><small>${esc(f.label)}</small>${esc(f.value)}</div></div>`).join('');
   $('imp').innerHTML = (p.impact || []).map((m, i) => `<div class="card" style="--c:${COLORS[i % 4]}"><div class="big">${esc(m.big)}</div><div>${esc(m.text)}</div></div>`).join('');
-  $('proj').innerHTML = (p.projects || []).map((x, i) => `<div class="card" style="--c:${COLORS[i % 4]}"><div class="ic">${esc(x.icon)}</div><h3>${esc(x.name)}</h3><span class="tag">${esc(x.tag)}</span><p>${esc(x.text)}</p><div class="plinks">${x.repo ? `<a href="${safeUrl(x.repo)}" target="_blank" rel="noopener">Code ↗</a>` : ''}${x.live ? `<a href="${safeUrl(x.live)}" target="_blank" rel="noopener" style="color:var(--yel)">Live ↗</a>` : ''}</div></div>`).join('');
+  const pj = p.projects || [], card = (x, i) => `<div class="card" style="--c:${COLORS[i % 4]}"><div class="ic">${esc(x.icon)}</div><h3>${esc(x.name)}</h3><span class="tag">${esc(x.tag)}</span><p>${esc(x.text)}</p><div class="plinks">${x.repo ? `<a href="${safeUrl(x.repo)}" target="_blank" rel="noopener">Code ↗</a>` : ''}${x.live ? `<a href="${safeUrl(x.live)}" target="_blank" rel="noopener" style="color:var(--yel)">Live ↗</a>` : ''}</div></div>`;
+  $('proj').innerHTML = pj.filter(x => !x.fun).map(card).join('') + (pj.some(x => x.fun) ? `<div class="issuer" style="grid-column:1/-1;--c:#f9f002">🎮 Fun builds</div>` + pj.filter(x => x.fun).map((x, i) => card(x, i + 1)).join('') : '');
   $('ach').innerHTML = (p.achievements || []).map((a, i) => `<div class="card" style="--c:${COLORS[i % 4]}"><div class="e">${esc(a.icon)}</div><h3>${esc(a.title)}</h3><p>${esc(a.text)}</p></div>`).join('');
   $('skill-list').innerHTML = (p.skills || []).map((g, i) => `<div class="card" style="--c:${COLORS[i % 4]}"><h3>${esc(g.group)}</h3><div class="tags">${(g.items || []).map(s => `<span>${esc(s)}</span>`).join('')}</div></div>`).join('');
   counters();
@@ -338,6 +355,22 @@ function renderCerts(d){
   $('cert-list').innerHTML = html || '<p class="loading">Certifications will appear here shortly.</p>';
 }
 
+function renderCases(p){
+  const cs = p.case_studies || [];
+  if (!cs.length) { $('cases').remove(); return; }
+  $('case-list').innerHTML = cs.map((c, i) => `<div class="card case" style="--c:${COLORS[i % 4]}"><span class="tag">${esc(c.tag)}</span><h3>${esc(c.icon)} ${esc(c.title)}</h3><div class="res">${esc(c.result_big)}</div><dl><dt>Problem</dt><dd>${esc(c.problem)}</dd><dt>What I built</dt><dd>${esc(c.solution)}</dd><dt>Result</dt><dd>${esc(c.result)}</dd><dt>Stack</dt><dd>${esc(c.stack)}</dd></dl></div>`).join('');
+}
+
+async function loadCV(){
+  try {
+    const r = await fetch('https://api.github.com/repos/sjaiswalnetwork/sjaiswalnetwork.github.io/contents/cv?t=' + Math.floor(Date.now() / 300000), {cache:'no-cache'});
+    if (!r.ok) return;
+    const f = (await r.json()).filter(x => /\.pdf$/i.test(x.name)).sort((a, b) => a.name < b.name ? 1 : -1)[0];
+    if (!f) return;
+    ['cv', 'cv2'].forEach(id => { const a = $(id); a.href = 'cv/' + encodeURIComponent(f.name); a.style.display = ''; });
+  } catch (e) {}
+}
+
 function renderPosts(d, profile){
   const posts = (d.posts || []).slice(0, 6);
   if (!posts.length) {
@@ -354,7 +387,7 @@ function renderRecs(d){
 }
 
 Promise.all(['profile','experience','credentials','posts','recommendations'].map(load)).then(([p, e, c, po, re]) => {
-  renderProfile(p); renderExperience(e); renderCerts(c); renderPosts(po, p); renderRecs(re); reveal();
+  renderProfile(p); renderCases(p); loadCV(); renderExperience(e); renderCerts(c); renderPosts(po, p); renderRecs(re); reveal();
 });
 
 // ---------- background: neon grid + rain ----------
